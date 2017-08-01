@@ -16,14 +16,11 @@ La simbología utilizada es:
 
 ### Ejemplos ###
 
-![prueba 1]
-(https://github.com/RQF7/tablas-de-verdad/blob/master/img/prueba01.png)
+![prueba 1](img/prueba01.png)
 
-![prueba 2]
-(https://github.com/RQF7/tablas-de-verdad/blob/master/img/prueba02.png)
+![prueba 2](img/prueba02.png)
 
-![prueba 3]
-(https://github.com/RQF7/tablas-de-verdad/blob/master/img/prueba03.png)
+![prueba 3](img/prueba03.png)
 
 ## Dependencias ##
 
