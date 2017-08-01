@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 8 "fnt/tabla.y" /* yacc.c:339  */
+#line 28 "fnt/tabla.y" /* yacc.c:339  */
 
 
 #include "arbol.h"              /* nodo, nuevo_nodo, nueva_hoja */
@@ -127,7 +127,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 25 "fnt/tabla.y" /* yacc.c:355  */
+#line 45 "fnt/tabla.y" /* yacc.c:355  */
                         /* Tipos de datos de la pila de yacc */
         char letra;             /* Caso de hojas. Proposiciones */
         Nodo* nodo;             /* Caso de nodos. Apuntadores a árbol */ 
@@ -447,8 +447,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    43,    43,    44,    45,    47,    50,    51,    52,    53,
-      54,    55,    56,    57
+       0,    63,    63,    64,    65,    67,    70,    71,    72,    73,
+      74,    75,    76,    77
 };
 #endif
 
@@ -1230,62 +1230,62 @@ yyreduce:
   switch (yyn)
     {
         case 4:
-#line 45 "fnt/tabla.y" /* yacc.c:1646  */
+#line 65 "fnt/tabla.y" /* yacc.c:1646  */
     { imprimir_tabla((yyvsp[-1].nodo)); liberar_arbol((yyvsp[-1].nodo)); 
                                                           printf("\nExpresión> "); }
 #line 1237 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 47 "fnt/tabla.y" /* yacc.c:1646  */
+#line 67 "fnt/tabla.y" /* yacc.c:1646  */
     { yyerrok; printf("\nExpresión> "); }
 #line 1243 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 50 "fnt/tabla.y" /* yacc.c:1646  */
+#line 70 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nueva_hoja((yyvsp[0].letra)); }
 #line 1249 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 51 "fnt/tabla.y" /* yacc.c:1646  */
+#line 71 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), AND); }
 #line 1255 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 52 "fnt/tabla.y" /* yacc.c:1646  */
+#line 72 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), OR); }
 #line 1261 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 53 "fnt/tabla.y" /* yacc.c:1646  */
+#line 73 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), XOR); }
 #line 1267 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 54 "fnt/tabla.y" /* yacc.c:1646  */
+#line 74 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), CONDICIONAL); }
 #line 1273 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 55 "fnt/tabla.y" /* yacc.c:1646  */
+#line 75 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), BICONDICIONAL); }
 #line 1279 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 56 "fnt/tabla.y" /* yacc.c:1646  */
+#line 76 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[0].nodo), NULL, NOT); }
 #line 1285 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 57 "fnt/tabla.y" /* yacc.c:1646  */
+#line 77 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-1].nodo), NULL, PARENTESIS); }
 #line 1291 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
@@ -1519,7 +1519,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 60 "fnt/tabla.y" /* yacc.c:1906  */
+#line 80 "fnt/tabla.y" /* yacc.c:1906  */
 
 
 jmp_buf inicio;                 /* Para recuperación despues de errores */

@@ -452,17 +452,37 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "fnt/tabla.l"
 /* tabla.l
- * Ricardo Quezada Figueroa 
  * Análisis sintáxico de expresiones booleanas. 
- * Depende de tabla.y */
-#line 7 "fnt/tabla.l"
+ * Depende de tabla.y 
+ *
+ * Copyright (c) 2017 Ricardo Quezada
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ * */
+#line 27 "fnt/tabla.l"
 
 #include "arbol.h"              /* Tipo de dato Nodo */
 #include "tabla.tab.h"		/* Macros de tokens */
 extern int lineno;              /* Número de lineas */
 
-#line 464 "fnt/lex.yy.c"
-#line 465 "fnt/lex.yy.c"
+#line 484 "fnt/lex.yy.c"
+#line 485 "fnt/lex.yy.c"
 
 #define INITIAL 0
 
@@ -679,12 +699,12 @@ YY_DECL
 		}
 
 	{
-#line 14 "fnt/tabla.l"
+#line 34 "fnt/tabla.l"
 
 
-#line 17 "fnt/tabla.l"
+#line 37 "fnt/tabla.l"
  /* Espacios en blanco */
-#line 687 "fnt/lex.yy.c"
+#line 707 "fnt/lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -743,25 +763,25 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 18 "fnt/tabla.l"
+#line 38 "fnt/tabla.l"
 { ; }
 	YY_BREAK
 /* Fin de archivo */
 case YY_STATE_EOF(INITIAL):
-#line 21 "fnt/tabla.l"
+#line 41 "fnt/tabla.l"
 { printf("\nHasta la próxima!\n");
                   return 0; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 24 "fnt/tabla.l"
+#line 44 "fnt/tabla.l"
 { printf("Hasta la próxima!\n");
                   return 0; }
 	YY_BREAK
 /* LETRAS */
 case 3:
 YY_RULE_SETUP
-#line 28 "fnt/tabla.l"
+#line 48 "fnt/tabla.l"
 {
 	yylval.letra = yytext[0];
 	return LETRA;
@@ -770,41 +790,41 @@ YY_RULE_SETUP
 /* BICONDICIONAL */
 case 4:
 YY_RULE_SETUP
-#line 34 "fnt/tabla.l"
+#line 54 "fnt/tabla.l"
 { return T_BICONDICIONAL; }
 	YY_BREAK
 /* CONDICIONAL */
 case 5:
 YY_RULE_SETUP
-#line 37 "fnt/tabla.l"
+#line 57 "fnt/tabla.l"
 { return T_CONDICIONAL; }
 	YY_BREAK
 /* OR EXCLUSIVO */
 case 6:
 YY_RULE_SETUP
-#line 40 "fnt/tabla.l"
+#line 60 "fnt/tabla.l"
 { return T_XOR; }
 	YY_BREAK
 /* Saltos de linea */
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 43 "fnt/tabla.l"
+#line 63 "fnt/tabla.l"
 { lineno++; 
           return '\n'; }
 	YY_BREAK
 /* Todo lo demás */
 case 8:
 YY_RULE_SETUP
-#line 47 "fnt/tabla.l"
+#line 67 "fnt/tabla.l"
 { return yytext[0]; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 49 "fnt/tabla.l"
+#line 69 "fnt/tabla.l"
 ECHO;
 	YY_BREAK
-#line 807 "fnt/lex.yy.c"
+#line 827 "fnt/lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1807,7 +1827,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 49 "fnt/tabla.l"
+#line 69 "fnt/tabla.l"
 
 
 int yywrap () 
