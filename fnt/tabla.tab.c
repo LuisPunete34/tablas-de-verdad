@@ -65,11 +65,11 @@
 #line 28 "fnt/tabla.y" /* yacc.c:339  */
 
 
-#include "arbol.h"              /* nodo, nuevo_nodo, nueva_hoja */
-#include <stdio.h>              /* printf, fprintf */
-#include <stdlib.h>             /* exit */
-#include <ctype.h>              /* getchar */
-#include <setjmp.h>             /* setjmp, longjmp */
+#include "arbol.h"				/* nodo, nuevo_nodo, nueva_hoja */
+#include <stdio.h>				/* printf, fprintf */
+#include <stdlib.h>				/* exit */
+#include <ctype.h>				/* getchar */
+#include <setjmp.h>				/* setjmp, longjmp */
 
 /* Declaraciones */
 int yylex ();
@@ -128,9 +128,9 @@ extern int yydebug;
 union YYSTYPE
 {
 #line 45 "fnt/tabla.y" /* yacc.c:355  */
-                        /* Tipos de datos de la pila de yacc */
-        char letra;             /* Caso de hojas. Proposiciones */
-        Nodo* nodo;             /* Caso de nodos. Apuntadores a árbol */ 
+						/* Tipos de datos de la pila de yacc */
+	char letra;					/* Caso de hojas. Proposiciones */
+	Nodo* nodo;					/* Caso de nodos. Apuntadores a árbol */ 
 
 #line 136 "fnt/tabla.tab.c" /* yacc.c:355  */
 };
@@ -447,8 +447,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    63,    63,    64,    65,    67,    70,    71,    72,    73,
-      74,    75,    76,    77
+       0,    63,    63,    64,    65,    69,    74,    76,    78,    80,
+      82,    84,    86,    88
 };
 #endif
 
@@ -1230,68 +1230,70 @@ yyreduce:
   switch (yyn)
     {
         case 4:
-#line 65 "fnt/tabla.y" /* yacc.c:1646  */
-    { imprimir_tabla((yyvsp[-1].nodo)); liberar_arbol((yyvsp[-1].nodo)); 
-                                                          printf("\nExpresión> "); }
-#line 1237 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 66 "fnt/tabla.y" /* yacc.c:1646  */
+    { imprimir_tabla((yyvsp[-1].nodo)); 
+					  liberar_arbol((yyvsp[-1].nodo)); 
+					  printf("\nExpresión> "); }
+#line 1238 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 67 "fnt/tabla.y" /* yacc.c:1646  */
-    { yyerrok; printf("\nExpresión> "); }
-#line 1243 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 70 "fnt/tabla.y" /* yacc.c:1646  */
+    { yyerrok; 
+					  printf("\nExpresión> "); }
+#line 1245 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 70 "fnt/tabla.y" /* yacc.c:1646  */
+#line 75 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nueva_hoja((yyvsp[0].letra)); }
-#line 1249 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1251 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 71 "fnt/tabla.y" /* yacc.c:1646  */
+#line 77 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), AND); }
-#line 1255 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1257 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 72 "fnt/tabla.y" /* yacc.c:1646  */
+#line 79 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), OR); }
-#line 1261 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1263 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 73 "fnt/tabla.y" /* yacc.c:1646  */
+#line 81 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), XOR); }
-#line 1267 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1269 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 74 "fnt/tabla.y" /* yacc.c:1646  */
+#line 83 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), CONDICIONAL); }
-#line 1273 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1275 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 75 "fnt/tabla.y" /* yacc.c:1646  */
+#line 85 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-2].nodo), (yyvsp[0].nodo), BICONDICIONAL); }
-#line 1279 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1281 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 76 "fnt/tabla.y" /* yacc.c:1646  */
+#line 87 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[0].nodo), NULL, NOT); }
-#line 1285 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1287 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 77 "fnt/tabla.y" /* yacc.c:1646  */
+#line 89 "fnt/tabla.y" /* yacc.c:1646  */
     { (yyval.nodo) = nuevo_nodo((yyvsp[-1].nodo), NULL, PARENTESIS); }
-#line 1291 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1293 "fnt/tabla.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1295 "fnt/tabla.tab.c" /* yacc.c:1646  */
+#line 1297 "fnt/tabla.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1519,25 +1521,25 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 80 "fnt/tabla.y" /* yacc.c:1906  */
+#line 92 "fnt/tabla.y" /* yacc.c:1906  */
 
 
-jmp_buf inicio;                 /* Para recuperación despues de errores */
-char *progname;                 /* Para mensajes de error */
-int lineno = 1;                 /* Contador de lineas. Usado en mensajes de error */
+jmp_buf inicio;				/* Para recuperación despues de errores */
+char *progname;				/* Para mensajes de error */
+int lineno = 1;				/* Contador de lineas. Usado en mensajes de error */
 
 /* main (argumentos)
  * Entra inmediatamente al ciclo de yyparse */
 
 int main (int argc, char *argv[])
 {
-        progname = argv[0];
-        printf("Creación de tablas de verdad a partir de expresiones booleanas.\n");
-        imprimir_notacion();
-        setjmp(inicio);
-        printf("Expresión> ");
-        yyparse();
-        return 0;
+	progname = argv[0];
+	printf("Creación de tablas de verdad a partir de expresiones booleanas.\n");
+	imprimir_notacion();
+	setjmp(inicio);
+	printf("Expresión> ");
+	yyparse();
+	return 0;
 }
 
 /* imprimir_notacion
@@ -1545,14 +1547,14 @@ int main (int argc, char *argv[])
 
 void imprimir_notacion ()
 {
-        printf("'salir' para terminar ejecución\n");
-        printf("==> OR 'v'\n==> AND '&'\n==> NOT '~'\n==> XOR 'xor'\n");
-        printf("==> CONDICIONAL '->'\n==> BICONDICIONAL '<->'\n\n");
+	printf("'salir' para terminar ejecución\n");
+	printf("==> OR 'v'\n==> AND '&'\n==> NOT '~'\n==> XOR 'xor'\n");
+	printf("==> CONDICIONAL '->'\n==> BICONDICIONAL '<->'\n\n");
 }
 
 void yyerror (char *mensaje)
 {
-        peligro(mensaje, (char *) 0);
+	peligro(mensaje, (char *) 0);
 }
 
 /* peligro (mensaje, detalle)
@@ -1560,10 +1562,10 @@ void yyerror (char *mensaje)
 
 void peligro (char *mensaje, char *detalle)
 {
-        fprintf(stderr, "%s: %s. ", progname, mensaje);
-        if (detalle) 
-                fprintf(stderr, "%s. ", detalle);
-        fprintf(stderr, "En línea %d.\n", lineno);
+	fprintf(stderr, "%s: %s. ", progname, mensaje);
+	if (detalle) 
+		fprintf(stderr, "%s. ", detalle);
+	fprintf(stderr, "En línea %d.\n", lineno);
 }
 
 /* error_ejecucion (mensaje, detalle) 
@@ -1572,7 +1574,7 @@ void peligro (char *mensaje, char *detalle)
 
 void error_ejecucion (char *mensaje, char *detalle)
 {
-        peligro(mensaje, detalle);
-        longjmp(inicio, 0);
+	peligro(mensaje, detalle);
+	longjmp(inicio, 0);
 }
 

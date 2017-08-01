@@ -23,9 +23,9 @@
  * SOFTWARE.
  * */
 
-#include "vector.h"             /* Contenedor, Vector */
-#include <stdio.h>              /* fprintf */
-#include <stdlib.h>             /* malloc, free */
+#include "vector.h"				/* Contenedor, Vector */
+#include <stdio.h>				/* fprintf */
+#include <stdlib.h>				/* malloc, free */
 
 /* Declaraciones privadas */
 Contenedor *crear_contenedor();
@@ -36,16 +36,16 @@ Contenedor *crear_contenedor();
 
 Vector *nuevo_vector()
 {
-        Vector *resultado;                      /* Variable resultado */
-        resultado = malloc(sizeof(Vector));
-        if (!resultado) {
-                fprintf(stderr, "Memoria insuficiente al crear vector");
-                exit(1);
-        }
-        resultado->primero = NULL;
-        resultado->ultimo = NULL;
-        resultado->num_elementos = 0;
-        return resultado;
+	Vector *resultado;			/* Variable resultado */
+	resultado = malloc(sizeof(Vector));
+	if (!resultado) {
+		fprintf(stderr, "Memoria insuficiente al crear vector");
+		exit(1);
+	}
+	resultado->primero = NULL;
+	resultado->ultimo = NULL;
+	resultado->num_elementos = 0;
+	return resultado;
 }
 
 /* insertar (vector, cadena) 
@@ -53,22 +53,22 @@ Vector *nuevo_vector()
 
 void insertar(Vector *vector, char *cadena)
 {
-       Contenedor *resultado;                   /* Variable resultado */
-       Contenedor *auxiliar;                    /* Variable para movimientos */
-       resultado = crear_contenedor();
-       resultado->cadena = cadena;
+	Contenedor *resultado;					/* Variable resultado */
+	Contenedor *auxiliar;					/* Variable para movimientos */
+	resultado = crear_contenedor();
+	resultado->cadena = cadena;
 
-        if (vector->primero == NULL) {
-                vector->primero = resultado;
-                vector->ultimo = resultado;
-        } else {
-                auxiliar = vector->ultimo;
-                vector->ultimo = resultado;
-                resultado->anterior = auxiliar;
-                auxiliar->siguiente = resultado;
-        }
+	if (vector->primero == NULL) {
+		vector->primero = resultado;
+		vector->ultimo = resultado;
+	} else {
+		auxiliar = vector->ultimo;
+		vector->ultimo = resultado;
+		resultado->anterior = auxiliar;
+		auxiliar->siguiente = resultado;
+	}
 
-        vector->num_elementos++;
+	vector->num_elementos++;
 }
 
 /* liberar_vector (vector) 
@@ -76,15 +76,15 @@ void insertar(Vector *vector, char *cadena)
 
 void liberar_vector(Vector *vector)
 {
-        Contenedor *it, *aux;
-        aux = it = vector->primero;
-        while(aux != NULL) {
-                aux = aux->siguiente;
-                free(it->cadena);
-                free(it);
-                it = aux;
-        }
-        free(vector);
+	Contenedor *it, *aux;
+	aux = it = vector->primero;
+	while(aux != NULL) {
+		aux = aux->siguiente;
+		free(it->cadena);
+		free(it);
+		it = aux;
+	}
+	free(vector);
 }
 
 /* Contenedor crear_contenedor
@@ -93,15 +93,15 @@ void liberar_vector(Vector *vector)
 
 Contenedor *crear_contenedor()
 {
-        Contenedor *resultado;                  /* Variable resultado */
-        resultado = malloc(sizeof(Contenedor));
-        if (!resultado) {
-                fprintf(stderr, "Memoria insuficiente al crear Contenedor");
-                exit(1);
-        }
-        resultado->cadena = "";
-        resultado->siguiente = NULL;
-        resultado->anterior = NULL;
-        return resultado;
+	Contenedor *resultado;				/* Variable resultado */
+	resultado = malloc(sizeof(Contenedor));
+	if (!resultado) {
+		fprintf(stderr, "Memoria insuficiente al crear Contenedor");
+		exit(1);
+	}
+	resultado->cadena = "";
+	resultado->siguiente = NULL;
+	resultado->anterior = NULL;
+	return resultado;
 }
 

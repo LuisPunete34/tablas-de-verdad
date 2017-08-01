@@ -59,9 +59,9 @@ extern int yydebug;
 union YYSTYPE
 {
 #line 45 "fnt/tabla.y" /* yacc.c:1909  */
-                        /* Tipos de datos de la pila de yacc */
-        char letra;             /* Caso de hojas. Proposiciones */
-        Nodo* nodo;             /* Caso de nodos. Apuntadores a árbol */ 
+						/* Tipos de datos de la pila de yacc */
+	char letra;					/* Caso de hojas. Proposiciones */
+	Nodo* nodo;					/* Caso de nodos. Apuntadores a árbol */ 
 
 #line 67 "fnt/tabla.tab.h" /* yacc.c:1909  */
 };

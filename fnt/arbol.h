@@ -35,11 +35,11 @@
 #define PARENTESIS 7
 
 /* Estructuras */
-typedef struct Nodo {                   /* Nodo de árbol */
-        char letra;                     /* Para representar preposiciones en las hojas */
-        int operacion;                  /* Macro que define operacion en elementos no-hoja */
-        struct Nodo *izquierda;         /* Apuntador a nodo izquierdo */
-        struct Nodo *derecha;           /* Apuntador a nodo derecho */
+typedef struct Nodo {		/* Nodo de árbol */
+	char letra;				/* Para representar preposiciones en las hojas */
+	int operacion;			/* Macro que define operacion en elementos no-hoja */
+	struct Nodo *izquierda;	/* Apuntador a nodo izquierdo */
+	struct Nodo *derecha;	/* Apuntador a nodo derecho */
 } Nodo;
 
 /* Declaraciones */

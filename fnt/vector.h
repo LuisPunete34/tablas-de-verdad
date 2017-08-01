@@ -31,15 +31,15 @@
  * el primero y ultimo elementos. */
 
 typedef struct Contenedor {
-        char *cadena;
-        struct Contenedor *siguiente;
-        struct Contenedor *anterior;
+	char *cadena;
+	struct Contenedor *siguiente;
+	struct Contenedor *anterior;
 } Contenedor;
 
 typedef struct Vector {
-        Contenedor *primero;
-        Contenedor *ultimo;
-        int num_elementos;
+	Contenedor *primero;
+	Contenedor *ultimo;
+	int num_elementos;
 } Vector;
 
 /* Declaraciones */

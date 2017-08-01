@@ -477,9 +477,9 @@ char *yytext;
  * */
 #line 27 "fnt/tabla.l"
 
-#include "arbol.h"              /* Tipo de dato Nodo */
-#include "tabla.tab.h"		/* Macros de tokens */
-extern int lineno;              /* Número de lineas */
+#include "arbol.h"				/* Tipo de dato Nodo */
+#include "tabla.tab.h"			/* Macros de tokens */
+extern int lineno;				/* Número de lineas */
 
 #line 484 "fnt/lex.yy.c"
 #line 485 "fnt/lex.yy.c"
@@ -770,61 +770,59 @@ YY_RULE_SETUP
 case YY_STATE_EOF(INITIAL):
 #line 41 "fnt/tabla.l"
 { printf("\nHasta la próxima!\n");
-                  return 0; }
+			  return 0; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 44 "fnt/tabla.l"
 { printf("Hasta la próxima!\n");
-                  return 0; }
+			  return 0; }
 	YY_BREAK
 /* LETRAS */
 case 3:
 YY_RULE_SETUP
 #line 48 "fnt/tabla.l"
-{
-	yylval.letra = yytext[0];
-	return LETRA;
-}
+{ yylval.letra = yytext[0];
+			  return LETRA; }
 	YY_BREAK
 /* BICONDICIONAL */
 case 4:
 YY_RULE_SETUP
-#line 54 "fnt/tabla.l"
+#line 52 "fnt/tabla.l"
 { return T_BICONDICIONAL; }
 	YY_BREAK
 /* CONDICIONAL */
 case 5:
 YY_RULE_SETUP
-#line 57 "fnt/tabla.l"
+#line 55 "fnt/tabla.l"
 { return T_CONDICIONAL; }
 	YY_BREAK
 /* OR EXCLUSIVO */
 case 6:
 YY_RULE_SETUP
-#line 60 "fnt/tabla.l"
+#line 58 "fnt/tabla.l"
 { return T_XOR; }
 	YY_BREAK
 /* Saltos de linea */
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 63 "fnt/tabla.l"
+#line 61 "fnt/tabla.l"
 { lineno++; 
-          return '\n'; }
+		  return '\n'; }
 	YY_BREAK
 /* Todo lo demás */
 case 8:
 YY_RULE_SETUP
-#line 67 "fnt/tabla.l"
+#line 65 "fnt/tabla.l"
 { return yytext[0]; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 69 "fnt/tabla.l"
+#line 67 "fnt/tabla.l"
 ECHO;
 	YY_BREAK
-#line 827 "fnt/lex.yy.c"
+#line 825 "fnt/lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1827,12 +1825,12 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 69 "fnt/tabla.l"
+#line 67 "fnt/tabla.l"
 
 
 int yywrap () 
 {
-        return 1;
+	return 1;
 }
 
 

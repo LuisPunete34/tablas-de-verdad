@@ -25,9 +25,9 @@
 
 %{ 
 
-#include "arbol.h"              /* Tipo de dato Nodo */
-#include "tabla.tab.h"		/* Macros de tokens */
-extern int lineno;              /* Número de lineas */
+#include "arbol.h"				/* Tipo de dato Nodo */
+#include "tabla.tab.h"			/* Macros de tokens */
+extern int lineno;				/* Número de lineas */
 
 %}
 
@@ -37,30 +37,28 @@ extern int lineno;              /* Número de lineas */
 [ \t]		{ ; }
 
  /* Fin de archivo */
-<<EOF>>         { printf("\nHasta la próxima!\n");
-                  return 0; }
+<<EOF>>		{ printf("\nHasta la próxima!\n");
+			  return 0; }
 
-salir           { printf("Hasta la próxima!\n");
-                  return 0; }
+salir		{ printf("Hasta la próxima!\n");
+			  return 0; }
 
  /* LETRAS */
-[A-Z]		{
-	yylval.letra = yytext[0];
-	return LETRA;
-}
+[A-Z]		{ yylval.letra = yytext[0];
+			  return LETRA; }
 
  /* BICONDICIONAL */
-\<\-\>          { return T_BICONDICIONAL; }
+\<\-\>		{ return T_BICONDICIONAL; }
 
  /* CONDICIONAL */
-\-\>            { return T_CONDICIONAL; }
+\-\>		{ return T_CONDICIONAL; }
 
  /* OR EXCLUSIVO */
-xor             { return T_XOR; }
+xor			{ return T_XOR; }
 
  /* Saltos de linea */
-\n      { lineno++; 
-          return '\n'; }
+\n		{ lineno++; 
+		  return '\n'; }
 
  /* Todo lo demás */
 .		{ return yytext[0]; }
@@ -69,6 +67,6 @@ xor             { return T_XOR; }
 
 int yywrap () 
 {
-        return 1;
+	return 1;
 }
 
