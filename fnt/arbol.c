@@ -106,7 +106,7 @@ void imprimir_tabla (Nodo *raiz)
 	printf("%s\n| ", separador);
 	iterador = expresiones->primero;
 	while(iterador != NULL) {
-		printf("%s| ", iterador->cadena);
+		printf("%s | ", iterador->cadena);
 		iterador = iterador->siguiente;
 	}
 	printf("\n%s\n", separador);
@@ -127,7 +127,7 @@ void imprimir_tabla (Nodo *raiz)
 		iterador = expresiones->primero;
 		printf("| ");
 		for (int j=0; j<expresiones->num_elementos; j++) {
-			num_espacios = strlen(iterador->cadena) - 2;
+			num_espacios = strlen(iterador->cadena) - 1;
 			for (int k=0; k<num_espacios; k++) printf(" ");
 			printf("%c | ", (evaluacion[j]) ? 'V' : 'F' );
 			iterador = iterador->siguiente;
@@ -191,10 +191,9 @@ int obtener_variables (Nodo *raiz, Vector *expresiones, int *contador)
 	if(raiz->letra != 0){
 		if(!registro[raiz->letra - 'A']) {
 			registro[raiz->letra - 'A'] = (*contador)++;
-			char *letra = malloc(3 * sizeof(char));
+			char *letra = malloc(2 * sizeof(char));
 			letra[0] = raiz->letra;
-			letra[1] = ' ';
-			letra[2] = 0;
+			letra[1] = 0;
 			insertar(expresiones, letra);
 			return 1;
 		} else {
@@ -241,7 +240,7 @@ char *obtener_expresiones (Nodo *raiz, Vector *expresiones, int *num_espacios)
 		if (raiz->operacion == NOT) {
 			if (raiz->izquierda->operacion == PARENTESIS)
 				parte_izquierda = agregar_parentesis(parte_izquierda);
-			sprintf(resultado, "~%s ", parte_izquierda);
+			sprintf(resultado, "~%s", parte_izquierda);
 	    } else {
 			if (raiz->izquierda->operacion == PARENTESIS) 
 				parte_izquierda = agregar_parentesis(parte_izquierda);
@@ -249,24 +248,24 @@ char *obtener_expresiones (Nodo *raiz, Vector *expresiones, int *num_espacios)
 				parte_derecha = agregar_parentesis(parte_derecha);
 	
 			if (raiz->operacion == AND)
-				sprintf(resultado, "%s & %s ", 
+				sprintf(resultado, "%s & %s", 
 					parte_izquierda, parte_derecha);
 			else if (raiz->operacion == OR) 
-				sprintf(resultado, "%s v %s ", 
+				sprintf(resultado, "%s v %s", 
 					parte_izquierda, parte_derecha);
 			else if (raiz->operacion == XOR)
-				sprintf(resultado, "%s xor %s ", 
+				sprintf(resultado, "%s xor %s", 
 					parte_izquierda, parte_derecha);
 			else if (raiz->operacion == CONDICIONAL)
-				sprintf(resultado, "%s -> %s ", 
+				sprintf(resultado, "%s -> %s", 
 					parte_izquierda, parte_derecha);
 			else if (raiz->operacion == BICONDICIONAL)
-				sprintf(resultado, "%s <-> %s ", 
+				sprintf(resultado, "%s <-> %s", 
 					parte_izquierda, parte_derecha);
 		}
 	
 		insertar(expresiones, strdup(resultado));
-		*num_espacios += strlen(resultado) + 2;
+		*num_espacios += strlen(resultado) + 3;
 		return strdup(resultado);
 	
 	}
@@ -340,10 +339,9 @@ char *agregar_parentesis (char *original)
 	int longitud = strlen(original);
 	char *resultado = malloc(longitud + 3);
 	resultado[0] = '(';
-	for (int i=0; i<longitud - 1; i++)
+	for (int i=0; i<longitud; i++)
 		resultado[i + 1] = original[i];
-	resultado[longitud] = ')';
-	resultado[longitud + 1] = ' ';
+	resultado[longitud + 1] = ')';
 	resultado[longitud + 2] = 0;
 	free(original);
 	return resultado;
